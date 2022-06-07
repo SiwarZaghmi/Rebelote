@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 @app.route('/git', methods=['POST'])
 def webhook():
-    client = pymongo.MongoClient("mongodb+srv://karim:22654790@cluster0.3jtiz.mongodb.net/?retryWrites=true&w=majority")
+    client = pymongo.MongoClient("mongodb://karim:22654790@cluster0-shard-00-00.3jtiz.mongodb.net:27017,cluster0-shard-00-01.3jtiz.mongodb.net:27017,cluster0-shard-00-02.3jtiz.mongodb.net:27017/?ssl=true&replicaSet=atlas-4lvqcl-shard-0&authSource=admin&retryWrites=true&w=majority")
     mydb = client['Github']
     token = "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"
     headers = {'Authorization': "token {}".format(token)}
